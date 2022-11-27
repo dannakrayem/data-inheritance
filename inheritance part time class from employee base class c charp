@@ -1,0 +1,46 @@
+using System.Xml.Linq;
+
+namespace programming_concepts_class_11162022
+{
+    public partial class Form1 : Form
+    {
+        class employee
+        {
+            protected string fname;
+            protected string lname;
+
+            public employee(string fn, string ln)
+            {
+                this.fname = fn;
+                this.lname = ln;
+                MessageBox.Show("inside constructor for person " + fname + " " + lname);
+            }
+        }
+
+        class Pt:employee //Pt inherits from employee
+        {
+            private double wageRate;
+
+            public Pt(string fn, string ln, double wr):base(fn,ln)
+            {
+                this.wageRate = wr;
+                MessageBox.Show("inside constructor for pt " + fname + " " + lname + " " + wageRate);
+
+            }
+        }
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            employee e1 = new employee(textBox1.Text, textBox2.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Pt f1 = new Pt(textBox1.Text, textBox2.Text, double.Parse(textBox3.Text));
+        }
+    }
+}
